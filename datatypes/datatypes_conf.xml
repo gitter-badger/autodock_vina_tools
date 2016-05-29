@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<datatypes>
+	<datatype_files>
+		<datatype_file name="molFiles.py" />
+	</datatype_files>
+	<registration>
+	    <datatype extension="mol2" type="galaxy.datatypes.molFiles:MOL2" display_in_upload="true" />
+	    <datatype extension="pdb" type="galaxy.datatypes.molFiles:PDB" display_in_upload="true"/>
+	    <datatype extension="pdbqt" type="galaxy.datatypes.molFiles:PDBQT" display_in_upload="true" />
+	</registration>
+</datatypes>
