@@ -13,7 +13,7 @@ install:
   - planemo conda_init --conda_prefix $CONDA_PREFIX
   - export PATH=$CONDA_PREFIX/bin:$PATH
   - conda update -q -y conda
-  - conda create -q -c bioconda --name stark
+  - conda create -q -y -c bioconda --name stark numpy==1.9.2
   - source activate stark
   - planemo --version
   - echo $TRAVIS_COMMIT_RANGE
