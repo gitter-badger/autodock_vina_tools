@@ -64,7 +64,15 @@ class MOL2(GenericMultiMolFile):
         if (self.no_mols[0] == 0) & (self.no_mols[1] > 0):
             return True
         else:
-            return False
+            self.no_mols = commands.getstatusoutput("grep -c @\<TRIPOS\>ATOM "+filename)
+            if (self.no_mols[0] == 0) & (self.no_mols[1] > 0):
+                return True
+            else:
+                self.no_mols = commands.getstatusoutput("grep -c @\<TRIPOS\>BOND "+filename)
+                if (self.no_mols[0] == 0) & (self.no_mols[1] > 0):
+                    return True
+                else:
+                    return False
 
     def set_peek(self, dataset, is_multi_byte=False):
         if not dataset.dataset.purged:
