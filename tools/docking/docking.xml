@@ -1,5 +1,5 @@
 <tool id="docking" name="Docking" version="0.1.0">
-    <description>- Tool to running molecular docking with Autodock Vina</description>
+    <description>Tool to running molecular docking with Autodock Vina</description>
     <requirements>
         <requirement type="package" version="1.1.2">autodock-vina</requirement>
     </requirements>
@@ -10,13 +10,13 @@
         vina --config "$box" --receptor "$receptor" --ligand "$ligand" --out "$file_output1" --log "$file_output2"
     ]]></command>
     <inputs>
-        <param type="data" name="box" format="txt" label="Box configuration: " help="Select a text file with the box configurations" />
-        <param type="data" name="receptor" format="pdbqt" label="Receptor: " help="Select a receptor pdbqt file" />
-        <param type="data" name="ligand" format="pdbqt"  label="Ligand: " help="Select a ligand pdbqt file" />
+        <param type="data" name="box" format="txt" label="Box configuration" help="Select a text file with the box configurations" />
+        <param type="data" name="receptor" format="pdbqt" label="Receptor" help="Select a receptor PDBQT format. This can be prepared using the receptor preparation tool." />
+        <param type="data" name="ligand" format="pdbqt"  label="Ligand" help="Select a ligand PDBQT format. This can be prepared using the ligand preparation tool." />
     </inputs>
     <outputs>
-        <data name="file_output1" format="pdbqt" label="#echo (os.path.splitext (str($ligand.name))[0]) + '_-_' + (os.path.splitext (str($receptor.name))[0])#.pdbqt" />
-        <data name="file_output2" format="txt" abel="#echo (os.path.splitext (str($ligand.name))[0]) + '_-_' + (os.path.splitext (str($receptor.name))[0])#.log" />
+        <data name="file_output1" format="pdbqt" />
+        <data name="file_output2" format="txt" />
     </outputs>
     <tests>
         <test>
@@ -46,9 +46,10 @@
         energy_range = 9999
         exhaustiveness = 10
         cpu = 4
+        seed = 1
 
         Where the parameters size_x, size_y, size_z, center_x, center_y and center_z  are coordinates of the binding site. 
-        The parameters num_modes, energy_range, exhaustiveness and cpu are autodock vina configurations to execute the algorithm.
+        The parameters num_modes, energy_range, exhaustiveness, cpu and seed are autodock vina configurations to execute the algorithm.
 
         The second input is a receptor file (pdbqt) what is a output of the prepare receptor tool.
         The last input is a ligand file (pdbqt) what is a output of the prepare ligand tool.
@@ -118,19 +119,19 @@
 
         The last is a log file with the binding affinity scores, this file looks like the following example:
 
-        #################################################################
-        # If you used AutoDock Vina in your work, please cite:          #
-        #                                                               #
-        # O. Trott, A. J. Olson,                                        #
-        # AutoDock Vina: improving the speed and accuracy of docking    #
-        # with a new scoring function, efficient optimization and       #
-        # multithreading, Journal of Computational Chemistry 31 (2010)  #
-        # 455-461                                                       #
-        #                                                               #
-        # DOI 10.1002/jcc.21334                                         #
-        #                                                               #
-        # Please see http://vina.scripps.edu for more information.      #
-        #################################################################
+        -----------------------------------------------------------------
+         If you used AutoDock Vina in your work, please cite:          
+                                                                       
+         O. Trott, A. J. Olson,                                        
+         AutoDock Vina: improving the speed and accuracy of docking    
+         with a new scoring function, efficient optimization and       
+         multithreading, Journal of Computational Chemistry 31 (2010)  
+         455-461                                                       
+                                                                       
+         DOI 10.1002/jcc.21334                                         
+                                                                       
+         Please see http://vina.scripps.edu for more information.      
+        ------------------------------------------------------------------
 
         Reading input ... done.
         Setting up the scoring function ... done.
