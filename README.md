@@ -1,4 +1,6 @@
 # Autodock Vina Tools
+
+[![Join the chat at https://gitter.im/autodock_vina_tools/Lobby](https://badges.gitter.im/autodock_vina_tools/Lobby.svg)](https://gitter.im/autodock_vina_tools/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Travis builds](https://travis-ci.org/leobiscassi/autodock_vina_tools.svg?branch=master)](https://travis-ci.org/leobiscassi/autodock_vina_tools)
 
 [Autodock Vina](http://vina.scripps.edu/) is an open-source program for doing molecular docking. It was designed and implemented by Dr. Oleg Trott in the Molecular Graphics Lab at The Scripps Research Institute.
